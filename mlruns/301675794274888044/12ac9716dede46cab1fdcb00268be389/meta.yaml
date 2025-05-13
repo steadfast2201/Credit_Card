@@ -1,0 +1,15 @@
+artifact_uri: file:///A:/Aniket_Scidentai/MLOPS/creditcard/mlruns/301675794274888044/12ac9716dede46cab1fdcb00268be389/artifacts
+end_time: 1747110379427
+entry_point_name: ''
+experiment_id: '301675794274888044'
+lifecycle_stage: active
+run_id: 12ac9716dede46cab1fdcb00268be389
+run_name: evaluate_rf_model
+run_uuid: 12ac9716dede46cab1fdcb00268be389
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747110370553
+status: 3
+tags: []
+user_id: sdais

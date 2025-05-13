@@ -1,0 +1,87 @@
+schema: '2.0'
+stages:
+  make_dataset:
+    cmd: python .\src\data\make_dataset.py .\data\raw\creditcard.csv
+    deps:
+    - path: .\data\raw\creditcard.csv
+      hash: md5
+      md5: b1b0caee6702843fc850f0b1875beed9
+      size: 150825587
+    - path: .\src\data\make_dataset.py
+      hash: md5
+      md5: 5d87ea0853101b748b17af0be510c2ac
+      size: 1314
+    params:
+      params.yaml:
+        make_dataset.seed: 2023
+        make_dataset.test_split: 0.2
+    outs:
+    - path: .\data\processed
+      hash: md5
+      md5: 7fc0adc16553c9588cbea204dcf7fa80.dir
+      size: 151099359
+      nfiles: 2
+  train_model:
+    cmd: python .\src\models\train_model.py .\data\pca
+    deps:
+    - path: .\data\pca
+      hash: md5
+      md5: 433aa52135671c25f1997d2d518c2731.dir
+      size: 57318856
+      nfiles: 2
+    - path: .\src\models\train_model.py
+      hash: md5
+      md5: 5af92edffd22804f29af18c1efe94bbb
+      size: 1362
+    outs:
+    - path: .\models
+      hash: md5
+      md5: 4ca5266aebd83e6b92cc79f0bb81bff3.dir
+      size: 520585
+      nfiles: 1
+  visualize:
+    cmd: python .\src\visualization\visualize.py .\models\model.joblib .\data\pca
+    deps:
+    - path: .\data\pca
+      hash: md5
+      md5: 433aa52135671c25f1997d2d518c2731.dir
+      size: 57318856
+      nfiles: 2
+    - path: .\models\model.joblib
+      hash: md5
+      md5: 0a5cc8f8f984f6684d50493632d10985
+      size: 520585
+    - path: .\src\visualization\visualize.py
+      hash: md5
+      md5: e6c88df118a569c03be06ffdc1c24fa8
+      size: 4326
+    outs:
+    - path: dvclive
+      hash: md5
+      md5: 9567be2ef2a342442c173f5c94f79261.dir
+      size: 19773332
+      nfiles: 11
+  build_features:
+    cmd: python .\src\features\build_features.py .\data\processed .\data\pca
+    deps:
+    - path: .\data\processed\test.csv
+      hash: md5
+      md5: e0bd27d1b1a879b44511e057348ff9d6
+      size: 30218248
+    - path: .\data\processed\train.csv
+      hash: md5
+      md5: 98dc999c89b5f6ea20e3d7ed14a91a06
+      size: 120881111
+    - path: .\src\features\build_features.py
+      hash: md5
+      md5: 6f820536edc366d6c4e8f27b1fa86f4f
+      size: 1521
+    params:
+      params.yaml:
+        build_features.n_components: 10
+    outs:
+    - path: .\data\pca
+      hash: md5
+      md5: 433aa52135671c25f1997d2d518c2731.dir
+      size: 57318856
+      nfiles: 2

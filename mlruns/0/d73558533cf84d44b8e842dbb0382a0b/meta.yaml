@@ -1,0 +1,15 @@
+artifact_uri: file:///A:/Aniket_Scidentai/MLOPS/creditcard/mlruns/0/d73558533cf84d44b8e842dbb0382a0b/artifacts
+end_time: 1747109951797
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d73558533cf84d44b8e842dbb0382a0b
+run_name: amazing-conch-931
+run_uuid: d73558533cf84d44b8e842dbb0382a0b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747109951483
+status: 3
+tags: []
+user_id: sdais

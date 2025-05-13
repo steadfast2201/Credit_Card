@@ -1,0 +1,6 @@
+artifact_location: file:///A:/Aniket_Scidentai/MLOPS/creditcard/mlruns/301675794274888044
+creation_time: 1747110369918
+experiment_id: '301675794274888044'
+last_update_time: 1747110369918
+lifecycle_stage: active
+name: model_evaluation
