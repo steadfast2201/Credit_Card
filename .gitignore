@@ -91,3 +91,6 @@ target/
 
 # AWS files
 .aws/*
+
+#Data
+data/
